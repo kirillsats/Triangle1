@@ -1,0 +1,10 @@
+C:\Users\opilane\Source\Repos\Triangle1_\bin\Debug\Triangle1.exe.config
+C:\Users\opilane\Source\Repos\Triangle1_\bin\Debug\Triangle1.exe
+C:\Users\opilane\Source\Repos\Triangle1_\bin\Debug\Triangle1.pdb
+C:\Users\opilane\Source\Repos\Triangle1_\obj\Debug\Triangle1.csproj.AssemblyReference.cache
+C:\Users\opilane\Source\Repos\Triangle1_\obj\Debug\Triangle1.Form1.resources
+C:\Users\opilane\Source\Repos\Triangle1_\obj\Debug\Triangle1.Form2.resources
+C:\Users\opilane\Source\Repos\Triangle1_\obj\Debug\Triangle1.csproj.GenerateResource.cache
+C:\Users\opilane\Source\Repos\Triangle1_\obj\Debug\Triangle1.csproj.CoreCompileInputs.cache
+C:\Users\opilane\Source\Repos\Triangle1_\obj\Debug\Triangle1.exe
+C:\Users\opilane\Source\Repos\Triangle1_\obj\Debug\Triangle1.pdb

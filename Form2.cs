@@ -15,15 +15,16 @@ namespace Triangle1
         Button btn;
         TextBox txtA, txtH;
         ListView listView1;
+        PictureBox trianglePicture; // Сделано полем класса
 
         public Form2()
         {
-            // Form properties
+            // Свойства формы
             this.Height = 800;
             this.Width = 900;
             this.Text = "Töö kolmnurgaga";
 
-            // Button
+            // Кнопка
             btn = new Button();
             btn.Text = "Käivitamine";
             btn.Font = new Font("Arial", 28);
@@ -32,11 +33,11 @@ namespace Triangle1
             btn.Location = new Point(320, 100);
             btn.BackColor = Color.White;
             btn.ForeColor = Color.Black;
-            
-            Controls.Add(btn); 
+
+            Controls.Add(btn);
             btn.Click += Btn_Click;
 
-            // Label for txtA
+            // Метка для txtA
             Label lblA = new Label();
             lblA.Text = "alus:";
             lblA.Location = new Point(220, 200);
@@ -48,16 +49,16 @@ namespace Triangle1
             txtA.Location = new Point(320, 200);
             txtA.Font = new Font("Arial", 10);
             txtA.Width = 200;
-            Controls.Add(txtA); 
+            Controls.Add(txtA);
 
             // TextBox - txtH
             txtH = new TextBox();
             txtH.Location = new Point(320, 320);
             txtH.Font = new Font("Arial", 10);
             txtH.Width = 200;
-            Controls.Add(txtH); 
+            Controls.Add(txtH);
 
-            // Label for txtH
+            // Метка для txtH
             Label lblH = new Label();
             lblH.Text = "Kõrgus:";
             lblH.Location = new Point(220, 320);
@@ -72,14 +73,17 @@ namespace Triangle1
             listView1.Height = 200;
             Controls.Add(listView1);
 
-            PictureBox trianglePicture = new PictureBox();
+            // PictureBox для отображения треугольника
+            trianglePicture = new PictureBox();
             trianglePicture.Location = new Point(600, 200); // Позиция картинки на форме
             trianglePicture.Size = new Size(200, 200); // Размер картинки
             Controls.Add(trianglePicture);
-
-
         }
 
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void Btn_Click(object sender, EventArgs e)
         {
@@ -109,47 +113,41 @@ namespace Triangle1
                 AddListViewItem("Pindala", triangle.Area().ToString());
                 AddListViewItem("Kas on olemas?", triangle.ExistTriangle1.ToString());
 
-               /* // Определение типа треугольника
+                // Определение типа треугольника
                 string triangleType = triangle.GetTriangleType();
                 AddListViewItem("Tüüp", triangleType);
 
                 // Обновление картинки в зависимости от типа треугольника
                 if (triangleType == "Равносторонний")
                 {
-                    trianglePicture.Image = Image.FromFile(@"..\..\treugol\ravnostoron.png"); // путь к картинке
+                    trianglePicture.Image = Image.FromFile(@"C:\Users\opilane\Source\Repos\Triangle1_\ravnostoron.png"); // путь к картинке
                 }
                 else if (triangleType == "Равнобедренный")
                 {
-                    trianglePicture.Image = Image.FromFile(@"..\..\treugol\ravnobed.png");
+                    trianglePicture.Image = Image.FromFile(@"C:\Users\opilane\Source\Repos\Triangle1_\ravnobed.png");
                 }
                 else if (triangleType == "Прямоугольный")
                 {
-                    trianglePicture.Image = Image.FromFile(@"..\..\treugol\prjamugol.png");
+                    trianglePicture.Image = Image.FromFile(@"C:\Users\opilane\Source\Repos\Triangle1_\prjamugol.png");
                 }
                 else if (triangleType == "Тупоугольный")
                 {
-                    trianglePicture.Image = Image.FromFile(@"..\..\treugol\tipougol.png");
+                    trianglePicture.Image = Image.FromFile(@"C:\Users\opilane\Source\Repos\Triangle1_\tipougol.png");
                 }
                 else if (triangleType == "Остроугольный")
                 {
-                    trianglePicture.Image = Image.FromFile(@"..\..\treugol\ostrougol.jpg");
+                    trianglePicture.Image = Image.FromFile(@"C:\Users\opilane\Source\Repos\Triangle1_\ostrougol.jpg");
                 }
                 else if (triangleType == "Разносторонний")
                 {
-                    trianglePicture.Image = Image.FromFile(@"..\..\treugol\raznostoron.png");
+                    trianglePicture.Image = Image.FromFile(@"C:\Users\opilane\Source\Repos\Triangle1_\raznostoron.png");
                 }
-               */
+
             }
             catch (FormatException)
             {
                 MessageBox.Show("Palun sisestage andmed õigesti!");
             }
         }
-    
-
     }
 }
-
-
-
-        

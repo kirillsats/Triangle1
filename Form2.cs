@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Triangle1
@@ -23,6 +17,7 @@ namespace Triangle1
             this.Height = 800;
             this.Width = 900;
             this.Text = "Töö kolmnurgaga";
+            this.BackColor = Color.LightBlue; // Устанавливаем голубой фон
 
             // Кнопка
             btn = new Button();
@@ -33,7 +28,6 @@ namespace Triangle1
             btn.Location = new Point(320, 100);
             btn.BackColor = Color.White;
             btn.ForeColor = Color.Black;
-
             Controls.Add(btn);
             btn.Click += Btn_Click;
 
@@ -49,6 +43,7 @@ namespace Triangle1
             txtA.Location = new Point(320, 200);
             txtA.Font = new Font("Arial", 10);
             txtA.Width = 200;
+            txtA.BackColor = Color.MistyRose; // цвет
             Controls.Add(txtA);
 
             // TextBox - txtH
@@ -56,6 +51,7 @@ namespace Triangle1
             txtH.Location = new Point(320, 320);
             txtH.Font = new Font("Arial", 10);
             txtH.Width = 200;
+            txtH.BackColor = Color.MistyRose; // цвет
             Controls.Add(txtH);
 
             // Метка для txtH
@@ -89,12 +85,21 @@ namespace Triangle1
         {
             double a, ha;
             listView1.Items.Clear();
+            trianglePicture.Image = null; // Убираем картинку перед расчетами
+
             try
             {
                 a = Convert.ToDouble(txtA.Text);
                 ha = Convert.ToDouble(txtH.Text);
 
                 Triangle1 triangle = new Triangle1(a, ha);
+
+                // Проверка существования треугольника
+                if (!triangle.ExistTriangle1)
+                {
+                    MessageBox.Show("Sellist kolmnurka ei ole!");
+                    return; // Выход из метода, если треугольник не существует
+                }
 
                 // Настройка ListView
                 listView1.View = View.Details;
@@ -109,45 +114,43 @@ namespace Triangle1
 
                 // Добавление данных в ListView с помощью метода
                 AddListViewItem("külg a", a.ToString());
-                AddListViewItem("Perimetr", triangle.Perimeter().ToString());
                 AddListViewItem("Pindala", triangle.Area().ToString());
-                AddListViewItem("Kas on olemas?", triangle.ExistTriangle1.ToString());
 
-                // Определение типа треугольника
+               /* // Определение типа треугольника
                 string triangleType = triangle.GetTriangleType();
                 AddListViewItem("Tüüp", triangleType);
 
                 // Обновление картинки в зависимости от типа треугольника
-                if (triangleType == "Равносторонний")
+                if (triangleType == "Võrdkülgne")
                 {
-                    trianglePicture.Image = Image.FromFile(@"C:\Users\opilane\Source\Repos\Triangle1_\ravnostoron.png"); // путь к картинке
+                    trianglePicture.Image = Image.FromFile(@"C:\Users\opilane\Source\Repos\Triangle1_\ravnostoron.png");
                 }
-                else if (triangleType == "Равнобедренный")
+                else if (triangleType == "Võrdhaarsed")
                 {
                     trianglePicture.Image = Image.FromFile(@"C:\Users\opilane\Source\Repos\Triangle1_\ravnobed.png");
                 }
-                else if (triangleType == "Прямоугольный")
+                else if (triangleType == "Ristkülikukujuline")
                 {
                     trianglePicture.Image = Image.FromFile(@"C:\Users\opilane\Source\Repos\Triangle1_\prjamugol.png");
                 }
-                else if (triangleType == "Тупоугольный")
+                else if (triangleType == "nüri")
                 {
                     trianglePicture.Image = Image.FromFile(@"C:\Users\opilane\Source\Repos\Triangle1_\tipougol.png");
                 }
-                else if (triangleType == "Остроугольный")
+                else if (triangleType == "Teravnurkne")
                 {
                     trianglePicture.Image = Image.FromFile(@"C:\Users\opilane\Source\Repos\Triangle1_\ostrougol.jpg");
                 }
-                else if (triangleType == "Разносторонний")
+                else if (triangleType == "Mitmekülgne")
                 {
                     trianglePicture.Image = Image.FromFile(@"C:\Users\opilane\Source\Repos\Triangle1_\raznostoron.png");
-                }
-
+                }*/
             }
             catch (FormatException)
             {
                 MessageBox.Show("Palun sisestage andmed õigesti!");
             }
         }
+
     }
 }

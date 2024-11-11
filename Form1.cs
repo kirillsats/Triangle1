@@ -18,8 +18,9 @@ namespace Triangle1
             this.Height = 800;
             this.Width = 900;
             this.Text = "Töö kolmnurgaga";
+            this.BackColor = Color.LightBlue; // голубой фон 
 
-            // Создание кнопки "Кäivitamine" (Запуск)
+            // Создание кнопки "Käivitamine" (Запуск)
             btn = new Button();
             btn.Text = "Käivitamine";
             btn.Font = new Font("Arial", 28);
@@ -44,11 +45,12 @@ namespace Triangle1
             txtA.Location = new Point(320, 200);
             txtA.Font = new Font("Arial", 10);
             txtA.Width = 200;
+            txtA.BackColor = Color.MistyRose; // цвет
             Controls.Add(txtA);
 
             // Создание метки для txtB (Külg 2)
             Label lblB = new Label();
-            lblB.Text = "Katet 1:";
+            lblB.Text = "Külg 1:";
             lblB.Location = new Point(220, 240);
             lblB.Font = new Font("Arial", 10);
             Controls.Add(lblB);
@@ -58,11 +60,12 @@ namespace Triangle1
             txtB.Location = new Point(320, 240);
             txtB.Font = new Font("Arial", 10);
             txtB.Width = 200;
+            txtB.BackColor = Color.MistyRose; // цвет
             Controls.Add(txtB);
 
             // Создание метки для txtC (Külg 3)
             Label lblC = new Label();
-            lblC.Text = "Katet 2:";
+            lblC.Text = "Külg 2:";
             lblC.Location = new Point(220, 280);
             lblC.Font = new Font("Arial", 10);
             Controls.Add(lblC);
@@ -72,6 +75,7 @@ namespace Triangle1
             txtC.Location = new Point(320, 280);
             txtC.Font = new Font("Arial", 10);
             txtC.Width = 200;
+            txtC.BackColor = Color.MistyRose;
             Controls.Add(txtC);
 
             // Настройка ListView
@@ -80,16 +84,16 @@ namespace Triangle1
             listView1.Font = new Font("Arial", 10);
             listView1.Width = 400;
             listView1.Height = 200;
-            listView1.View = View.Details; // Включаем отображение в виде деталей
-            listView1.Columns.Add("Nimi", 150); // Добавляем колонку "Nimi"
-            listView1.Columns.Add("Väärtus", 150); // Добавляем колонку "Väärtus"
+            listView1.View = View.Details;
+            listView1.Columns.Add("Nimi", 150);
+            listView1.Columns.Add("Väärtus", 150);
             Controls.Add(listView1);
 
             // PictureBox для отображения изображений треугольников
             trianglePicture = new PictureBox();
             trianglePicture.Location = new Point(600, 200);
             trianglePicture.Size = new Size(200, 200);
-            trianglePicture.SizeMode = PictureBoxSizeMode.StretchImage; // Настройка режима растягивания изображения
+            trianglePicture.SizeMode = PictureBoxSizeMode.StretchImage;
             Controls.Add(trianglePicture);
 
             // Создание кнопки для открытия другой формы (Form2)
@@ -126,6 +130,14 @@ namespace Triangle1
                 // Создаём объект треугольника
                 Triangle1 triangle = new Triangle1(a, b, c);
 
+                // Проверяем, существует ли треугольник
+                if (!triangle.ExistTriangle)
+                {
+                    MessageBox.Show("Sellist kolmnurka ei ole!"); // Сообщение об ошибке
+                    trianglePicture.Image = null; // Удаляем изображение
+                    return;
+                }
+
                 // Метод для добавления элементов в ListView
                 void AddListViewItem(string name, string value)
                 {
@@ -150,22 +162,22 @@ namespace Triangle1
                 // Выбираем путь к изображению в зависимости от типа треугольника
                 switch (triangleType)
                 {
-                    case "Равносторонний":
+                    case "Võrdkülgne":
                         imagePath = @"C:\Users\opilane\Source\Repos\Triangle1_\ravnostoron.png";
                         break;
-                    case "Равнобедренный":
+                    case "Võrdhaarsed":
                         imagePath = @"C:\Users\opilane\Source\Repos\Triangle1_\ravnobed.png";
                         break;
-                    case "Прямоугольный":
+                    case "Ristkülikukujuline":
                         imagePath = @"C:\Users\opilane\Source\Repos\Triangle1_\prjamugol.png";
                         break;
-                    case "Тупоугольный":
+                    case "nüri":
                         imagePath = @"C:\Users\opilane\Source\Repos\Triangle1_\tipougol.png";
                         break;
-                    case "Остроугольный":
+                    case "Teravnurkne":
                         imagePath = @"C:\Users\opilane\Source\Repos\Triangle1_\ostrougol.jpg";
                         break;
-                    case "Разносторонний":
+                    case "Mitmekülgne":
                         imagePath = @"C:\Users\opilane\Source\Repos\Triangle1_\raznostoron.png";
                         break;
                 }

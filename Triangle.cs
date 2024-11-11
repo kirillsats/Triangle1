@@ -40,12 +40,12 @@ namespace Triangle1
 
         public string GetTriangleType()
         {
-            if (A == B && B == C) return "Равносторонний";
-            if (A == B || B == C || A == C) return "Равнобедренный";
-            if (Math.Pow(A, 2) + Math.Pow(B, 2) == Math.Pow(C, 2)) return "Прямоугольный";
-            if (Math.Pow(A, 2) + Math.Pow(B, 2) < Math.Pow(C, 2)) return "Тупоугольный";
-            if (Math.Pow(A, 2) + Math.Pow(B, 2) > Math.Pow(C, 2)) return "Остроугольный";
-            return "Разносторонний"; // по умолчанию
+            if (A == B && B == C) return "Võrdkülgne";
+            if (A == B || B == C || A == C) return "Võrdhaarsed";
+            if (Math.Pow(A, 2) + Math.Pow(B, 2) == Math.Pow(C, 2)) return "Ristkülikukujuline";
+            if (Math.Pow(A, 2) + Math.Pow(B, 2) < Math.Pow(C, 2)) return "nüri";
+            if (Math.Pow(A, 2) + Math.Pow(B, 2) > Math.Pow(C, 2)) return "Teravnurkne";
+            return "Mitmekülgne"; // по умолчанию
         }
 
 
